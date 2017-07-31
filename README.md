@@ -7,3 +7,8 @@ vue前端用部分muse ui的组件，当然其中有一些问题需要解决，�
 ### Author:kunnisser
 ### E-mail:kunnisser@sina.cn
 ****
+预览
+------
+### 预览地址
+|---|----|-----|
+|1|`[点这里](http://kuni.applinzi.com/Vmusic/#/recommended "悬停显示")`
