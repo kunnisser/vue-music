@@ -1,0 +1,13 @@
+{
+  "path": {
+    "recommended": "http://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg",
+    "count": "https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg",
+    "streamheader": "http://ws.stream.qqmusic.qq.com//",
+    "streamfooter": ".m4a?fromtag=46",
+    "basePicpath": "https://y.gtimg.cn/music/photo_new/T002R150x150M000",
+    "basePicbackname": ".jpg?max_age=2592000",
+    "lyric": "https://api.darlin.me/music/lyric/",
+    "hotkey": "https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg",
+    "search": "https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp"
+  }
+}

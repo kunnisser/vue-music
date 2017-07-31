@@ -1,0 +1,33 @@
+radius-border($r, $color)
+  -webkit-border-radius $r px
+  border-radius $r px
+  border px2rem(2) solid $color
+
+bottom-border($thin, $color)
+  border-bottom px2rem($thin) solid $color
+
+top-border($thin, $color)
+  border-top px2rem($thin) solid $color
+
+left-border($thin, $color)
+  border-left px2rem($thin) solid $color
+
+right-border($thin, $color)
+  border-right px2rem($thin) solid $color
+
+shadow-border($thin, $color)
+  box-shadow 0 0 px2rem($thin) $color
+  border-radius px2rem(4)
+
+bg-image($img)
+  background: url($img + "@2x.png") no-repeat center
+  background-size 100% 100%
+
+html-font-size = 75;
+
+px2rem($px)
+  $px/html-font-size rem
+
+rem2px($rem)
+  $rem*html-font-size px
+
