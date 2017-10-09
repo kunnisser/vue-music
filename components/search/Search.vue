@@ -45,7 +45,7 @@
         showclear: !1,
         hotkeyArr: [],
         searchkey: '',
-        searchListArr:[],
+        searchListArr: [],
         localstorge: window.localStorage,
         historyArr: [],
         historyVisible: !1,
@@ -64,7 +64,8 @@
         platform: 'h5',
         needNewCode: 1,
         _: 1501051881164
-      }, jsonp: 'jsonpCallback'}).then(res => {
+      },
+        jsonp: 'jsonpCallback'}).then(res => {
         this.hotkeyArr = res.data.data.hotkey;
       });
       this.historyArr = JSON.parse(this.localstorge.getItem('historyArr'));
@@ -105,29 +106,32 @@
         this.reverseArr.reverse();
       },
       searchHandle (key) {
-          key.trim() && this.$http.jsonp(config.path.search, {params: {
-          g_tk: 5381,
-          uin: 0,
-          format: 'jsonp',
-          inCharset: 'utf-8',
-          outCharset: 'utf-8',
-          notice: 0,
-          platform: 'h5',
-          needNewCode: 1,
-          w: this.searchkey,
-          zhidaqu: 1,
-          catZhida: 1,
-          t: 0,
-          flag: 1,
-          ie: 'utf-8',
-          sem: 1,
-          aggr: 0,
-          perpage: 20,
-          n: 20,
-          p: 2,
-          remoteplace: 'txt.mqq.all',
-          _: '1501060806285'
-        }, jsonp: 'jsonpCallback'}).then(res => {
+          key.trim() && this.$http.jsonp(config.path.search, {
+            params: {
+              g_tk: 5381,
+              uin: 0,
+              format: 'jsonp',
+              inCharset: 'utf-8',
+              outCharset: 'utf-8',
+              notice: 0,
+              platform: 'h5',
+              needNewCode: 1,
+              w: this.searchkey,
+              zhidaqu: 1,
+              catZhida: 1,
+              t: 0,
+              flag: 1,
+              ie: 'utf-8',
+              sem: 1,
+              aggr: 0,
+              perpage: 20,
+              n: 20,
+              p: 2,
+              remoteplace: 'txt.mqq.all',
+              _: '1501060806285'
+              },
+            jsonp: 'jsonpCallback'
+          }).then(res => {
           this.searchListArr = res.data.data.song.list;
           this.historyVisible = !1;
           let checkRepeat = this.historyArr.findIndex((ha) => {

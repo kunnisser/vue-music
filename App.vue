@@ -32,9 +32,6 @@
       },
       mounted () {
         this.musicPlayer = document.getElementById('music');
-        let dpr = window.dpr;
-        let clientW = document.documentElement.clientWidth;
-        dpr === 1 && clientW >= 750 && (this.$refs.viewBody.style.width = '750px');
       },
       methods: {
         ...mapMutations(['play', 'pause']),
@@ -47,16 +44,16 @@
 <style rel="stylesheet/stylus" lang="stylus">
   @import 'assets/stylus/index.styl';
   body
-    background-color #dcdcdc
+    background-color #1f2d3d
     .view
-      Width 100%
+      position absolute
+      width px2rem(750)
       height 100%
-      min-width 320px
-      margin 0 auto
-      position relative
+      top 0
+      left 50%
+      margin-left px2rem(-375)
       background url("assets/img/musicbg.jpg") no-repeat
       background-size 100% 100%
-      box-shadow 0 0 px2rem(8) rgba(0,0,0,0.6)
       box-shadow 0 0 px2rem(8) rgba(0,0,0,0.6)
       .mu-paper
         width 100%

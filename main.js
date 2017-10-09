@@ -12,26 +12,29 @@ import audioPlaylist from 'components/audio/AudioPlaylist';
 import Search from 'components/search/Search';
 import MuseUi from 'muse-ui';
 import 'muse-ui/dist/muse-ui.css';
-import '../../static/animate.css';
+import '../../static/animates.css';
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(Vuex);
 Vue.use(MuseUi);
 
-let dpr, rem, scale;
-let docEl = document.documentElement;
-let fontEl = document.createElement('style');
-let metaEl = document.querySelector('meta[name = "viewport"]');
+const docEl = document.documentElement;
+const metaEl = docEl.querySelector('meta[name = "viewport"]');
+
+let d, rem, scale;
 let deviceWidth = docEl.clientWidth;
-dpr = window.devicePixelRatio || 1;
-dpr === 1 && deviceWidth >= 750 && (deviceWidth = 750);
-rem = deviceWidth * dpr / 10;
-scale = 1 / dpr;
-metaEl.setAttribute('content', 'width =' + dpr * deviceWidth + ',initial-scale = ' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale + ',user-scalable = no');
-docEl.setAttribute('data-dpr', dpr);
-docEl.firstElementChild.appendChild(fontEl);
-fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
+d = window.devicePixelRatio || 1;
+d === 1 && deviceWidth >= 540 && (deviceWidth = 540);
+scale = 1 / d;
+rem = deviceWidth * d / 10;
+docEl.setAttribute('data-dpr', d);
+metaEl.setAttribute('content', 'initial-scale = ' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale + ',user-scalable = no');
+docEl.style.fontSize = rem + 'px';
+window.onresize = () => {
+  let resizeRem = document.documentElement.clientWidth <= (540 * d) ? document.documentElement.clientWidth / 10 : 54 * d;
+  docEl.style.fontSize = resizeRem + 'px';
+};
 
 window.rem2px = function (v) {
   v = parseFloat(v);
@@ -42,9 +45,6 @@ window.px2rem = function (v) {
   v = parseFloat(v);
   return v / rem;
 };
-
-window.dpr = dpr;
-window.rem = rem;
 
 const localStorge = window.localStorage;
 localStorge.getItem('playlist') || localStorge.setItem('playlist', JSON.stringify([]));
