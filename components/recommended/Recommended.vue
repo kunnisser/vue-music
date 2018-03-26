@@ -50,7 +50,8 @@
         _initScroll () {
           this.scrollView = new Bscroll(this.$refs.recomlist, {
              click: !0,
-             probeType: 1
+             probeType: 1,
+             bounce: !1
           });
         },
         defaultClick (id, event) {

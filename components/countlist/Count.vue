@@ -73,7 +73,8 @@
       _initScroll () {
         this.countScroll = new Bscroll(this.$refs.countWrapper, {
           click: !0,
-          probeType: 1
+          probeType: 1,
+          bounce: !1
         });
       },
       play (index, event) {

@@ -10,9 +10,10 @@ import Recommended from 'components/recommended/Recommended';
 import Count from 'components/countlist/Count';
 import audioPlaylist from 'components/audio/AudioPlaylist';
 import Search from 'components/search/Search';
+import device from 'current-device';
 import MuseUi from 'muse-ui';
 import 'muse-ui/dist/muse-ui.css';
-import '../../static/animates.css';
+import '../../static2/animates.css';
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
@@ -25,14 +26,14 @@ const metaEl = docEl.querySelector('meta[name = "viewport"]');
 let d, rem, scale;
 let deviceWidth = docEl.clientWidth;
 d = window.devicePixelRatio || 1;
-d === 1 && deviceWidth >= 540 && (deviceWidth = 540);
+device.desktop() && deviceWidth >= 540 && (deviceWidth = 540);
 scale = 1 / d;
-rem = deviceWidth * d / 10;
+rem = device.desktop() ? 54 / d : deviceWidth * d / 10;
 docEl.setAttribute('data-dpr', d);
 metaEl.setAttribute('content', 'initial-scale = ' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale + ',user-scalable = no');
 docEl.style.fontSize = rem + 'px';
 window.onresize = () => {
-  let resizeRem = document.documentElement.clientWidth <= (540 * d) ? document.documentElement.clientWidth / 10 : 54 * d;
+  let resizeRem = device.desktop() ? 54 / d : document.documentElement.clientWidth / 10;
   docEl.style.fontSize = resizeRem + 'px';
 };
 
