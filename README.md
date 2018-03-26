@@ -5,7 +5,7 @@
 - 为了实现进度滑动效果，修改了部分slider组件的js代码，日后会贴出。
 
 # 预览地址
-[点我查看](http://kuni.applinzi.com/Vmusic/#/recommended)
+[点我查看](http://kuni.applinzi.com/vmusic)
 ![](https://github.com/kunnisser/vmusic/blob/master/assets/img/preshow.png)
 
 ### 图片介绍
